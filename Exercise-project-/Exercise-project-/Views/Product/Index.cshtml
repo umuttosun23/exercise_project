@@ -1,0 +1,54 @@
+﻿@using Exercise_project_.Models
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Birim Fiyat</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.ProductName</td>
+            <td>@item.unitprice</td>
+            <td>@item.Category.Name</td>
+            @if (item.ProductStatus == true)
+            {
+                <td> <span class="badge badge-success">Aktif</span></td>
+            }
+            else
+            {
+                <td> <span class="badge badge-danger">Pasif</span></td>
+            }
+            @if (item.ProductStatus == true)
+            {
+                <td>
+                    <a href="/Product/DeleteProduct/@item.ID" class="btn btn-danger">Pasif Yap</a>
+                    <a href="/Product/UrunGetir/@item.ID" class="btn btn-primary" style="width:100px">Güncelle</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a href="/Product/DeleteProduct/@item.ID" class="btn btn-success">Aktif Yap</a>
+                    <a href="/Product/UrunGetir/@item.ID" class="btn btn-primary" style="width:100px">Güncelle</a>
+                </td>
+            }
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Product/AddProduct" class="btn btn-success">Ürün Ekle</a>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />

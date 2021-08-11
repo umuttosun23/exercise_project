@@ -1,0 +1,32 @@
+﻿@model Exercise_project_.Models.Product
+@{
+    ViewData["Title"] = "UrunGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Ürün Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+
+    @Html.Label("İsim")
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(x => x.unitprice, new { @class = "form-control" })
+    <br />
+    @Html.Label("Görsel")
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    @Html.Label("Durum")
+    @Html.TextBoxFor(x => x.ProductStatus, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.deger1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Ürün Güncelle</button>
+
+}
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />

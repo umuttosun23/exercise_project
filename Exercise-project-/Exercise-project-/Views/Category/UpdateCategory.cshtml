@@ -1,0 +1,23 @@
+﻿@model Exercise_project_.Models.Category
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Durum")
+    @Html.TextBoxFor(x => x.CategoryStatus, new { @class = "form-control" })
+</div>
+    <br />
+    <button class="btn btn-outline-primary">Kategori Güncelle</button>
+}
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+

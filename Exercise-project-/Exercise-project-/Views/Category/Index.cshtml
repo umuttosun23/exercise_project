@@ -1,0 +1,50 @@
+﻿@using Exercise_project_.Models
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th>Durum</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            @if (item.CategoryStatus == true)
+            {
+                <td> <span class="badge badge-success">Aktif</span></td>
+            }
+            else
+            {
+                <td> <span class="badge badge-danger">Pasif</span></td>
+            }
+            @if (item.CategoryStatus == true)
+            {
+                <td>
+                    <a href="/Category/DeleteCategory/@item.ID" class="btn btn-danger">Pasif Yap</a>
+                    <a href="/Category/UpdateCategory/@item.ID" class="btn btn-primary" style="width:100px">Güncelle</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <a href="/Category/DeleteCategory/@item.ID" class="btn btn-success">Aktif Yap</a>
+                    <a href="/Category/UpdateCategory/@item.ID" class="btn btn-primary" style="width:100px">Güncelle</a>
+                </td>
+            }
+        </tr>
+    }
+</table>
+<br />
+<a href="/Category/AddCategory/" class="btn btn-success">Kategori Ekle</a>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+

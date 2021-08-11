@@ -1,0 +1,26 @@
+﻿@model Exercise_project_.Models.Product
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<form class="form-group" method="post">
+    <br />
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Birim Fiyatı")
+    @Html.TextBoxFor(x => x.unitprice, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Görsel")
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Durum")
+    @Html.TextBoxFor(x => x.ProductStatus, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoryvalues, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btn1">Ürün Ekle</button>
+</form>
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+

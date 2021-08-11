@@ -1,0 +1,15 @@
+﻿@model Exercise_project_.Models.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<form class="form-group" method="post">
+    <br />
+    @Html.Label("Kategori ismi")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Durum")
+    @Html.TextBoxFor(x =>x.CategoryStatus, new { @class = "form-control" })
+    <button class="btn btn-info" id="btn1">Kategori Ekle</button>
+</form>
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
